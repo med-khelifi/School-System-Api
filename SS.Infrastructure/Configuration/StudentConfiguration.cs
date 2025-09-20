@@ -16,9 +16,10 @@ namespace SS.Infrastructure.Configuration
             builder.HasKey(p => p.StudID);
             builder.Property(p=>p.Name).HasMaxLength(200).IsRequired();
             builder.Property(p=>p.Address).HasMaxLength(500).IsRequired();
-            builder.Property(p=>p.Phone).HasMaxLength(100).IsRequired();
+            builder.Property(p=>p.Phone).HasMaxLength(500).IsRequired();
+
             builder.HasOne(s => s.Department)
-                .WithMany(s => s.Students)
+                .WithMany(d => d.Students)
                 .HasForeignKey(s=>s.DID)
                 .OnDelete(DeleteBehavior.Restrict);
         }

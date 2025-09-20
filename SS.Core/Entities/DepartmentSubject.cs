@@ -15,10 +15,10 @@ namespace SS.Core.Entities
         public int DID { get; set; }
         public int SubID { get; set; }
 
-        [ForeignKey("DID")]
+        
         public virtual Department Department { get; set; }
 
-        [ForeignKey("SubID")]
+        
         public virtual Subject Subject { get; set; }
     }
 

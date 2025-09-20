@@ -16,7 +16,17 @@ namespace SS.Infrastructure.Configuration
             builder.HasKey(p => p.SubID);
             builder.Property(p => p.SubjectName)
                 .HasMaxLength(500);
+            builder.Property(p => p.Period)
+                .IsRequired();
+            builder.HasMany(s => s.StudentsSubjects)
+                .WithOne(ss => ss.Subject)
+                .HasForeignKey(ss=> ss.SubID)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            builder.HasMany(s => s.DepartmetsSubjects)
+                .WithOne(ds => ds.Subject)
+                .HasForeignKey(ds=> ds.SubID)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
