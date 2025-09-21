@@ -7,7 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SS.Core\SS.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Student\Commands\" />
   </ItemGroup>
 
 </Project>

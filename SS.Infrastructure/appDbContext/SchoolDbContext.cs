@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SS.Infrastructure.SchoolDbContext
+namespace SS.Infrastructure.appDbContext
 {
     public class SchoolDbContext : DbContext
     {

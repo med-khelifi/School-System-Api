@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SS.Infrastructure.SchoolDbContext;
+using SS.Infrastructure.appDbContext;
 
 #nullable disable
 
 namespace SS.Infrastructure.Migrations
 {
-    [DbContext(typeof(SchoolDbContext.SchoolDbContext))]
+    [DbContext(typeof(appDbContext.SchoolDbContext))]
     [Migration("20250920102443_relate_tables")]
     partial class relate_tables
     {

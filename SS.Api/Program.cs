@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
-using SS.Infrastructure.SchoolDbContext;
+using SS.Application;
+using SS.Infrastructure;
+using SS.Infrastructure.appDbContext;
 
 namespace SS.Api
 {
@@ -9,13 +11,19 @@ namespace SS.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            
             // Add services to the container.
-            builder.Services.AddDbContext<SchoolDbContext>(option =>
+            builder.Services.AddDbContext<SchoolDbContext>(
+                option =>
             {
-                option.UseSqlServer(builder.Configuration.GetConnectionString("dbcontext"));
+                string cs = builder.Configuration.GetConnectionString("dbcontext")!;
+                option.UseSqlServer(cs);
             });
 
+            builder.Services
+                .AddInfrastructureDependencies()
+                .AddApplicationDependencies();
+            
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
