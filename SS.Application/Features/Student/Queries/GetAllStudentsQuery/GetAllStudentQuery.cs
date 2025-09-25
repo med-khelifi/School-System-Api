@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SS.Application.Common.Response;
 using SS.Application.Responses.StudentResponses;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,6 @@ using System.Threading.Tasks;
 
 namespace SS.Application.Features.Student.Queries.GetAllStudentsQuery
 {
-    public record GetAllStudentQuery():IRequest<IEnumerable<GetStuentListResponse>>;
+    public record GetAllStudentQuery():IRequest<Response<IEnumerable<GetStuentListResponse>>>;
    
 }
