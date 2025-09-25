@@ -1,27 +1,26 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using SS.Application.Interfaces;
-using SS.Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SS.Application.Responses.StudentResponses;
+
 
 namespace SS.Application.Features.Student.Queries.GetAllStudentsQuery
 {
-    public class GetAllStudentQueryHandler : IRequestHandler<GetAllStudentQuery, IEnumerable<Core.Entities.Student>>
+    public class GetAllStudentQueryHandler : IRequestHandler<GetAllStudentQuery, IEnumerable<GetStuentListResponse>>
     {
         private readonly IStudentService _service;
+        private readonly IMapper _mapper;
 
-        public GetAllStudentQueryHandler(IStudentService service)
+        public GetAllStudentQueryHandler(IStudentService service,IMapper mapper)
         {
             _service = service;
+            _mapper = mapper;
         }
-        public Task<IEnumerable<Core.Entities.Student>> Handle(GetAllStudentQuery request, CancellationToken cancellationToken)
+
+        async Task<IEnumerable<GetStuentListResponse>> IRequestHandler<GetAllStudentQuery, IEnumerable<GetStuentListResponse>>.Handle(GetAllStudentQuery request, CancellationToken cancellationToken)
         {
-            //if(cancellationToken.IsCancellationRequested)
-            //    return new List<CC>() as IEnumerable<S>;
-            return _service.GetAllStudentsAsync();
+            var  studentsList = await _service.GetAllStudentsAsync();
+            return _mapper.Map<IEnumerable<GetStuentListResponse>>(studentsList);
         }
     }
 }

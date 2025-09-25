@@ -1,8 +1,10 @@
 
 using Microsoft.EntityFrameworkCore;
 using SS.Application;
+using SS.Application.Mappings.StudentMappers;
 using SS.Infrastructure;
 using SS.Infrastructure.appDbContext;
+using System.Reflection;
 
 namespace SS.Api
 {
@@ -17,7 +19,7 @@ namespace SS.Api
                 option =>
             {
                 string cs = builder.Configuration.GetConnectionString("dbcontext")!;
-                option.UseSqlServer(cs);
+                option.UseLazyLoadingProxies().UseSqlServer(cs);
             });
 
             builder.Services

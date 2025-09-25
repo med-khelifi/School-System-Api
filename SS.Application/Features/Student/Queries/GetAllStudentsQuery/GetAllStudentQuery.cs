@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SS.Core.Entities;
+using SS.Application.Responses.StudentResponses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 
 namespace SS.Application.Features.Student.Queries.GetAllStudentsQuery
 {
-    public record GetAllStudentQuery():IRequest<IEnumerable<Core.Entities.Student>>;
+    public record GetAllStudentQuery():IRequest<IEnumerable<GetStuentListResponse>>;
    
 }
