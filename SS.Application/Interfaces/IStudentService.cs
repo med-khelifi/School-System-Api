@@ -10,5 +10,6 @@ namespace SS.Application.Interfaces
     public interface IStudentService
     {
         public Task<IEnumerable<Student>> GetAllStudentsAsync();
+        public Task<Student?> GetStudentAsync(int studentId);
     }
 }

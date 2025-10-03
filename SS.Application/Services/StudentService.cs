@@ -22,5 +22,9 @@ namespace SS.Application.Services
         {
             return await _repo.GetAllAsync();
         }
+        public async Task<Student?> GetStudentAsync(int studentId)
+        {
+            return await _repo.FindAsync(studentId);
+        }
     }
 }

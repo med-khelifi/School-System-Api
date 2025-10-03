@@ -12,6 +12,7 @@ namespace SS.Application.Mappings.StudentMappers
         public StudentMapperProfile()
         {
             GetStudentListMapper();
+            GetStudentMapper();
 
         }
     }

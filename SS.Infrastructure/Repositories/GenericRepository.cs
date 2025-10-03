@@ -18,6 +18,12 @@ namespace SS.Infrastructure.Repositories
             this.context = context;
             dbSet = context.Set<T>();
         }
+
+        public async Task<T?> FindAsync(int id)
+        {
+            return await dbSet.FindAsync(id);
+        }
+
         public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
             return await dbSet.ToListAsync();

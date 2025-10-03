@@ -9,5 +9,6 @@ namespace SS.Core.Interfaces
     public interface IGenericRepository<T> where T : class
     {
         Task<IEnumerable<T>> GetAllAsync();
+        Task<T?> FindAsync(int id);
     }
 }
